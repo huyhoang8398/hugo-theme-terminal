@@ -9,8 +9,6 @@ html {
 }
 
 body {
-  display: flex;
-  justify-content: center;
   margin: 0;
   padding: 0;
   font-family: 'Fira Code', Monaco, Consolas, Ubuntu Mono, monospace;
@@ -28,6 +26,11 @@ body {
 
   @media (--phone) {
     font-size: 1rem;
+  }
+  
+  @media (min-width: 864px) {
+    display: flex;
+    justify-content: center;
   }
 }
 
