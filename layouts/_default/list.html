@@ -17,8 +17,22 @@
       <span class="post-date">
         {{ .Date.Format "2006-01-02" }}
       </span>
-      {{ with .Params.Author }}<span class="post-author">::
-        {{ . }}</span>{{ end }}
+      {{ if isset .Params "author" }}
+      <span class="post-author">:: 
+        {{ if isset .Site.Data "authors" }}
+          {{ $author := index .Site.Data.authors .Params.author }}
+          {{ if $author }}
+            <a href="{{ $author.url }}" target="_blank" />{{ $author.name }}</a>
+          {{ else }}
+            {{ .Params.author }}
+          {{ end }}
+        {{ else }}
+          {{ .Params.author }}
+        {{ end }}
+      {{ else }}
+        Unknown
+      </span>
+      {{ end }}
     </div>
 
     {{ if .Params.tags }}
