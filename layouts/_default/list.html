@@ -32,8 +32,8 @@
     {{ if .Params.tags }}
     <span class="post-tags">
       {{ range .Params.tags }}
-      #<a href="{{ (urlize (printf "tags/%s/" . )) | absLangURL }}">
-        {{- . -}}
+      <a href="{{ (urlize (printf "tags/%s/" . )) | absLangURL }}">
+        #{{- . -}}
       </a>&nbsp;
       {{ end }}
     </span>
