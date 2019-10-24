@@ -1,0 +1,10 @@
+{{ if isset .SiteData "authors" }}
+    {{ $author := index .SiteData.authors .Author }}
+    {{ if $author }}
+        <a href="{{ (urlize (printf "authors/%s/" .Author )) | absLangURL }}" />{{ $author.name }}</a>
+    {{ else }}
+        <a href="{{ (urlize (printf "authors/%s/" .Author )) | absLangURL }}" />{{ .Author }}</a>
+    {{ end }}
+{{ else }}
+    <a href="{{ (urlize (printf "authors/%s/" .Author )) | absLangURL }}" />{{ .Author }}</a>
+{{ end }}
